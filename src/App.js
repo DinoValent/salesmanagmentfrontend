@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import { useLocation } from "react-router-dom";
+import Sidebar from "./components/Sidebar";
+import AppRoutes from "./routes/AppRoutes";
 
-function App() {
+const App = () => {
+  const location = useLocation();
+  const isLoginPage = location.pathname === "/login";
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ display: "flex" }}>
+      {!isLoginPage && <Sidebar />}
+      <div style={{ marginLeft: "200px", padding: "20px", width: "100%" }}>
+        <AppRoutes />
+      </div>
     </div>
   );
-}
+};
 
 export default App;
