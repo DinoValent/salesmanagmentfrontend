@@ -13,11 +13,11 @@ const Sidebar = () => {
       <button className="sidebar-button" onClick={() => navigate("/invoice")}>
         Invoice
       </button>
-      <button className="sidebar-button" onClick={() => navigate("/services")}>
-        Services
+      <button className="sidebar-button" onClick={() => navigate("/customer")}>
+        Customers
       </button>
-      <button className="sidebar-button" onClick={() => navigate("/contact")}>
-        Contact
+      <button className="sidebar-button" onClick={() => navigate("/product")}>
+        Product
       </button>
     </div>
   );
