@@ -16,7 +16,7 @@ const Login = () => {
                 className="form-control my-3 w-75"
                 placeholder="Username"
                 name="username"
-                value={""}
+                type="text"
               />
               <input
                 className="form-control my-3 w-75"

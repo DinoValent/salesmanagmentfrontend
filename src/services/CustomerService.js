@@ -35,5 +35,46 @@ export class CustomerService {
         }, 500);
       });
     }
+
+  getCustomerById(id) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const customer = this.customers.find(customer => customer.id === parseInt(id));
+        if (customer) {
+          resolve(customer);
+        } else {
+          reject(new Error('Customer not found'));
+        }
+      }, 500);
+    });
+  }
+
+    updateCustomer(id, updatedCustomer) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          const index = this.customers.findIndex(customer => customer.id === parseInt(id));
+          if (index !== -1) {
+            this.customers[index] = { ...this.customers[index], ...updatedCustomer };
+            resolve(this.customers[index]);
+          } else {
+            reject(new Error('Customer not found'));
+          }
+        }, 500);
+      });
+    }
+    createCustomer(newCustomer) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          const exists = this.customers.some(customer => customer.id === parseInt(newCustomer.id));
+          if (exists) {
+            reject(new Error('Customer ID already exists'));
+          } else {
+            this.customers.push(newCustomer);
+            resolve(newCustomer);
+          }
+        }, 500);
+      });
+    }
+
   }
   

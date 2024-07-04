@@ -30,9 +30,6 @@ const InvoiceList = () => {
       <div className="card-header d-flex justify-content-between">
         <h3>Invoices</h3>
         <div className="d-flex">
-          <Link className="btn btn-success me-2" to="/invoices">
-            See Invoices
-          </Link>
           <Link className="btn btn-success" to="/newInvoice">
             New Invoice
           </Link>

@@ -33,5 +33,18 @@ export class InvoiceService {
         }, 500);
       });
     }
+    createInvoice(newInvoice) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          const exists = this.invoices.some(invoice => invoice.id === newInvoice.id);
+          if (exists) {
+            reject(new Error('Invoice ID already exists'));
+          } else {
+            this.invoices.push(newInvoice);
+            resolve(newInvoice);
+          }
+        }, 500);
+      });
+    }
   }
   

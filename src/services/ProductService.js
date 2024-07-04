@@ -35,5 +35,44 @@ export class ProductService {
         }, 500);
       });
     }
+    getProductById(id) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          const product = this.products.find(product => product.id === parseInt(id));
+          if (product) {
+            resolve(product);
+          } else {
+            reject(new Error('Product not found'));
+          }
+        }, 500);
+      });
+    }
+  
+    updateProduct(id, updatedProduct) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          const index = this.products.findIndex(product => product.id === parseInt(id));
+          if (index !== -1) {
+            this.products[index] = { ...this.products[index], ...updatedProduct };
+            resolve(this.products[index]);
+          } else {
+            reject(new Error('Product not found'));
+          }
+        }, 500);
+      });
+    }
+    createProduct(newProduct) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          const exists = this.products.some(product => product.id === parseInt(newProduct.id));
+          if (exists) {
+            reject(new Error('Product ID already exists'));
+          } else {
+            this.products.push(newProduct);
+            resolve(newProduct);
+          }
+        }, 500);
+      });
+    }
   }
   

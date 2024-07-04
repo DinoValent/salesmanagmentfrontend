@@ -8,7 +8,7 @@
     return (
       <div style={{ display: "flex" }}>
         {!isLoginPage && <Sidebar />}
-        <div style={{ marginLeft: "200px", padding: "20px", width: "100%" }}>
+        <div style={{ marginLeft: "200px", padding: "20px", width: "50%" }}>
           <AppRoutes />
         </div>
       </div>
